@@ -1,13 +1,13 @@
 Name:           snap-sync
 Version:        0.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Use snapper snapshots to backup to external drive
 
 License:        GPLv2
 URL:            https://github.com/wesbarnett/snap-sync/
 Source0:        https://github.com/wesbarnett/snap-sync/releases/download/%{version}/%{name}-%{version}.tar.gz
 
-Requires:       bash, snapper, btrfs-progs, gawk, util-linux, sed, openssh-clients, pv
+Requires:       bash, btrfs-progs, coreutils, gawk, grep, snapper, systemd, util-linux, which
 BuildArch:      noarch
 
 %description
@@ -32,6 +32,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/%{name}.8*
 
 %changelog
+* Sun January 31 2021 Pekka Oinas <peoinas@gmail.com> 0.7-3
+- Fix dependencies
+
 * Sun January 24 2021 Pekka Oinas <peoinas@gmail.com> 0.7-2
 - Add pv to dependencies
 
